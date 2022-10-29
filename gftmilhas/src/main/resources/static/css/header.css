@@ -1,0 +1,41 @@
+.header {
+    background-color: rgb(44, 2, 92);
+
+  }
+
+  .header a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .header a:hover {
+    color: #CCC;
+  }
+
+  .navegacao{
+    display: flex;
+    gap: 20px;
+    align-items: baseline;  
+  }
+
+  .logo{
+    font-weight: bold;
+    font-size: 1.6rem;
+  }
+
+  .links{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-grow: 3;
+    font-size: 1.1rem;
+  }
+
+  .links ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin: 0;
+    padding-left: .4rem;
+  }

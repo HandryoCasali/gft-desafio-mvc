@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{layout.html}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GFT Milhas | Página de erro</title>
+    <style>
+        .caixa-error {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+        .caixa-error img {
+            max-width: 610px;
+        }
+        .caixa-error span {
+            margin-top: 1rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div layout:fragment="content">
+        <div class="caixa-error">
+            <img th:src="@{/images/bad-request.png}" alt="">
+            <span>Mais um erro pra gente :)</span>
+            <span>Página só pra não ficar tomando erro na tela</span>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{layout.html}">
+
+<head>
+    <title>GFT Milhas | Atividades</title>
+</head>
+
+<body>
+    <div layout:fragment="content">
+        <h1>Atividades</h1>
+        <div class="alert alert-primary" th:if="${#lists.isEmpty(atividades)}">
+            Nenhuma atividade cadastrada para esse evento!
+        </div>
+        <div class="alert alert-success" th:if="${mensagem}" th:text="${mensagem}"></div>
+        <div class="alert alert-danger" th:if="${erroDeletar}" th:text="${erroDeletar}"></div>
+        <div class="alert alert-danger" th:if="${erroBuscar}" th:text="${erroBuscar}"></div>
+        <div th:if="${not #lists.isEmpty(atividades)}">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Data Início</th>
+                        <th>Data Final</th>
+                        <th>Opções</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="atividade : ${atividades}">
+                        <td th:text="${atividade.nome}"></td>
+                        <td th:text="${#dates.format(atividade.dataInicio, 'dd/MM/yyyy')}"></td>
+                        <td th:text="${#dates.format(atividade.dataFinal, 'dd/MM/yyyy')}"></td>
+                        <td>
+                            <a th:href="@{/atividade/buscar(id=${atividade.id})}" class="btn btn-info btn-sm">Detalhes</a>
+                            <a th:href="@{/atividade/editar(id=${atividade.id})}" class="btn btn-warning btn-sm">Editar</a>
+                            <a th:href="@{/atividade/deletar(id=${atividade.id})}" class="btn btn-danger btn-sm"
+                                onclick="return confirm('Você realmente deseja excluir essa projeto?')">Excluir</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <a th:href="@{/evento/buscar(id=${idEvento})}" class="btn btn-primary">Voltar</a>
+        <a th:href="@{/atividade/cadastrar(id=${idEvento})}" class="btn btn-primary">Nova Atividade</a>
+    </div>
+</body>
+
+</html>

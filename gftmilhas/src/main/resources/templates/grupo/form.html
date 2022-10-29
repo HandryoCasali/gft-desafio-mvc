@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{layout.html}">
+
+<head>
+    <title>GFT Milhas | Grupo</title>
+</head>
+
+<div layout:fragment="content">
+    <div class="card">
+        <h2 class="card-header bg-primary text-light">Cadastro de Grupo</h2>
+        
+        <span th:if="${erroBuscar}" class="mt-3">
+            <span th:text="${erroBuscar}" class="alert alert-danger"></span>
+        </span>
+        <span th:if="${erro}" th:text="${erro}" class="alert alert-danger"></span>
+        <div th:if="not ${erroBuscar}">
+            <form method="POST" th:action="@{cadastrar}" th:object="${grupoParticipante}" class="card-body mb-4  mt-2">
+
+                <input type="hidden" th:name="idEvento" th:id="idEvento" th:value="${idEvento}">
+                <input type="hidden" th:field="${grupoParticipante.id}">
+                <input type="hidden" th:field="*{pontuacao}">
+                <fieldset class="row">
+                    <div class="mb-3 col-md-5">
+                        <label for="nomeGrupo" class="form-label">Nome</label>
+                        <input type="text" class="form-control" id="nomeGrupo" th:field="*{nome}"
+                            placeholder="Digite o nome do grupo" required>
+                    </div>
+                    <div class="mb-3 col-md-5">
+                        <label for="urlFotoGrupo" class="form-label">Url da Imagem</label>
+                        <input type="text" class="form-control" id="urlFotoGrupo" th:field="*{urlFoto}"
+                            placeholder="Digite o nome do grupo" required>
+                    </div>
+                </fieldset>
+                <button type="submit" class="btn btn-primary">Cadastrar Grupo</button>
+            </form>
+        </div>
+    </div>
+
+    <a th:href="@{/evento/buscar(id=${idEvento})}" class="btn btn-primary mt-3">Voltar</a>
+</div>
+
+</html>

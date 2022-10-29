@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{layout.html}">
+
+<head>
+    <title>GFT Milhas | Evento</title>
+</head>
+
+<body>
+    <div layout:fragment="content">
+        <h1>Eventos</h1>
+        <div class="alert alert-primary" th:if="${#lists.isEmpty(eventos)}">
+            Nenhum evento cadastrado!
+        </div>
+        <div class="alert alert-success" th:if="${mensagem}" th:text="${mensagem}"></div>
+        <div class="alert alert-danger" th:if="${erroDeletar}" th:text="${erroDeletar}"></div>
+        <div class="alert alert-danger" th:if="${erroBuscar}" th:text="${erroBuscar}"></div>
+        <div th:if="${not #lists.isEmpty(eventos)}">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Data Início</th>
+                        <th>Data Final</th>
+                        <th>Opções</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="evento : ${eventos}">
+                        <td th:text="${evento.nome}"></td>
+                        <td th:text="${#dates.format(evento.dataInicio, 'dd/MM/yyyy')}"></td>
+                        <td th:text="${#dates.format(evento.dataFinal, 'dd/MM/yyyy')}"></td>
+                        <td>
+                            <a th:href="@{/evento/buscar(id=${evento.id})}" class="btn btn-info btn-sm">Detalhes</a>
+                            <a th:href="@{/evento/deletar(id=${evento.id})}" class="btn btn-danger btn-sm"
+                                onclick="return confirm('Você realmente deseja excluir essa projeto?')">Excluir</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <a href="/evento/cadastrar" class="btn btn-primary">Novo Evento</a>
+
+    </div>
+</body>
+
+</html>

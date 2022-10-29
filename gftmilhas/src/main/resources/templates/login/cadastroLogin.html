@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{layout.html}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GFT Milhas | Cadastrar</title>
+
+    <style>
+        body {
+            height: 90vh;
+            min-height: 550px;
+            background-color: blueviolet;
+        }
+
+        main {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            height: 100%;
+        }
+
+        .caixa {
+            max-width: 900px;
+            padding: 0;
+            box-shadow: 10px 10px 10px rgb(0, 0, 0, 0.4);
+        }
+    </style>
+</head>
+
+<body>
+    <div layout:fragment="content">
+
+        <main>
+            <div class="container-md caixa">
+                <div class="card p-3">
+                    <div th:if="${param.error}" class="alert alert-danger">
+                        Usuário e/ou Senha inválido(s).
+                    </div>
+                    <div th:if="${erroCadastro}" th:text="${erroCadastro}" class="alert alert-danger">
+                        
+                    </div>
+                    <div th:if="${param.logout}" class="alert alert-danger">
+                        You have been logged out.
+                    </div>
+                    <h1 class="text-center">Cadastrar</h1>
+
+                    <div class="card-body">
+                        <form th:action="@{/cadastrar}" method="POST" th:object="${usuario}">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="floatingInput" th:field="*{nome}"
+                                    placeholder="Digite seu nome" required>
+                                <label for="floatingInput">Nome</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="email" class="form-control" id="floatingInput" th:field="*{email}"
+                                    placeholder="Digite seu Email" required>
+                                <label for="floatingInput">Email</label>
+                            </div>
+                            <div class="row">
+                                <div class="form-floating col-md-6 mb-3 ">
+                                    <input type="text" class="form-control" id="floatingInput"
+                                        th:field="*{quatroLetras}" placeholder="Digite seu usuário" maxlength="4"
+                                        minlength="4" required>
+                                    <label class="ms-3" for="floatingInput">Quatro Letras</label>
+                                </div>
+                                <div class="form-floating col-md-6 mb-3">
+                                    <input type="password" class="form-control" th:field="*{senha}"
+                                        id="floatingPassword" placeholder="Digite sua senha" required>
+                                    <label class="ms-3" for="floatingPassword">Senha</label>
+                                </div>
+                            </div>
+                            <div class="d-grid col-6 mx-auto">
+                                <button type="submit" class="btn btn-primary">Criar Conta</button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+</body>
+
+</html>
