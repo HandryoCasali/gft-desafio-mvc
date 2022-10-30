@@ -16,7 +16,10 @@
 
         <div th:object="${evento}" th:if="${evento}">
             <div class="card mb-2">
-                <h2 class="card-header p-0"><img th:src="@{https://images.unsplash.com/photo-1528243097678-739049bbf2e7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1473&q=80}" class="card-img-top imagem-card" alt="..."></h2>
+                <div class="card-header p-0">
+                    <img th:src="${evento.urlFoto} ? ${evento.urlFoto} : @{https://images.unsplash.com/photo-1528243097678-739049bbf2e7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1473&q=80}"
+                        alt="" class="card-img-top imagem-card">
+                </div>
                 <div class="card-body row">
                     <p class="card-titulo"><span th:text="*{nome}"></span></p>
                     <p><span th:text="*{descricao}"></span></p>
@@ -28,46 +31,47 @@
                     <p class="col-md-3 card-destaque">Duração do Evento: <span th:text="*{diasEvento}"></span> dias</p>
                 </div>
             </div>
-            
+
             <div class="mb-5">
                 <a th:href="@{/ranking}" class="btn btn-primary">Voltar</a>
             </div>
 
 
-          <div class="container-tabela mb-3">
-            <table class="tabela-criterio">
-                <caption class="tabela-titulo caption-top">GFT Milhas</caption>
-                <thead>
-                    <tr>
-                        <th>Critério</th>
-                        <th>Pontuação por grupo</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Presença</td>
-                        <td> 10</td>
-                    </tr>
-                    <tr>
-                        <td>Atividade</td>
-                        <td> 5</td>
-                    </tr>
-                    <tr>
-                        <td>Atraso</td>
-                        <td>-2</td>
-                    </tr>
-                    <tr>
-                        <td>Bônus 100% presença</td>
-                        <td> 5</td>
-                    </tr>
-                    <tr>
-                        <td>Bônus 100% atividade</td>
-                        <td> 3</td>
-                    </tr>
-                </tbody>
-            </table>
-            <p class="descricao-tabela-criterio mt-3">Foi utilizado essas regras para o cálculo da pontuação dos grupos.</p>
-          </div>
+            <div class="container-tabela mb-3">
+                <table class="tabela-criterio">
+                    <caption class="tabela-titulo caption-top">GFT Milhas</caption>
+                    <thead>
+                        <tr>
+                            <th>Critério</th>
+                            <th>Pontuação por grupo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Presença</td>
+                            <td> 10</td>
+                        </tr>
+                        <tr>
+                            <td>Atividade</td>
+                            <td> 5</td>
+                        </tr>
+                        <tr>
+                            <td>Atraso</td>
+                            <td>-2</td>
+                        </tr>
+                        <tr>
+                            <td>Bônus 100% presença</td>
+                            <td> 5</td>
+                        </tr>
+                        <tr>
+                            <td>Bônus 100% atividade</td>
+                            <td> 3</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="descricao-tabela-criterio mt-3">Foi utilizado essas regras para o cálculo da pontuação dos
+                    grupos.</p>
+            </div>
 
             <h3>Ranking dos Grupos</h3>
             <table class="table table-striped">
@@ -82,15 +86,16 @@
                     <tr th:each="grupo, itemStat : ${listaGruposRank}">
                         <td><span th:text="${itemStat.index + 1}"></span>º lugar</td>
                         <td class="d-flex gap-2">
-                            <img th:src="${grupo.urlFoto} ? @{${grupo.urlFoto}} : @{/images/imagemPadraoEquipe.jpg}" alt="Imagem do participante" class="imagem-icon-grupo">
-                            <p  th:text="${grupo.nome}"></p>
+                            <img th:src="${grupo.urlFoto} ? @{${grupo.urlFoto}} : @{/images/imagemPadraoEquipe.jpg}"
+                                alt="Imagem do participante" class="imagem-icon-grupo">
+                            <p th:text="${grupo.nome}"></p>
                         </td>
-                        
+
                         <td><span th:text="${grupo.pontuacao}"></span> pts</td>
                     </tr>
                 </tbody>
             </table>
-           
+
         </div>
     </div>
 </body>

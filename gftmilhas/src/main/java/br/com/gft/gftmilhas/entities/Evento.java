@@ -35,6 +35,8 @@ public class Evento {
     @NotBlank(message = "Descrição é necessário.")
     private String descricao;
 
+    private String urlFoto;
+
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dataInicio;
@@ -75,6 +77,14 @@ public class Evento {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public String getUrlFoto() {
+        return urlFoto;
+    }
+
+    public void setUrlFoto(String urlFoto) {
+        this.urlFoto = urlFoto;
     }
 
     public Date getDataInicio() {

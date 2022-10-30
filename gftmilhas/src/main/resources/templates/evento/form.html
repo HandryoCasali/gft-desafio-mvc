@@ -27,6 +27,11 @@
                 <textarea type="text" class="form-control" id="descricao" placeholder="Digite a descrição do evento"
                     th:field="${evento.descricao}" required></textarea>
             </div>
+            <div class="mb-3">
+                <label for="nome" class="form-label">Url da Imagem</label>
+                <input type="text" class="form-control" id="nome" th:field="${evento.urlFoto}"
+                    placeholder="Coloque a url do evento">
+            </div>
             <div class="mb-3 row">
                 <div class="col-md-6">
                     <label for="dataInicio" class="form-label">Data Início</label>

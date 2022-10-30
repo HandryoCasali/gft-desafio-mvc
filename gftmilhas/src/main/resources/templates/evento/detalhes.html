@@ -8,11 +8,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Evento | Detalhes</title>
 </head>
+
 <div layout:fragment="content">
     <span class="alert alert-danger" th:if="${erroBusca}" th:text="${erroBusca}"></span>
     <div th:object="${evento}" th:if="${evento}">
         <div class="card mb-2">
-            <h2 class="card-header p-0"><img th:src="@{https://images.unsplash.com/photo-1528243097678-739049bbf2e7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1473&q=80}" class="card-img-top imagem-card" alt="..."></h2>
+            <div class="card-header card-cabecalho-evento p-0">
+                <img th:src="${evento.urlFoto} ? ${evento.urlFoto} : @{https://images.unsplash.com/photo-1528243097678-739049bbf2e7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1473&q=80}" alt="" class="card-img-top imagem-card">
+            </div>
             <div class="card-body row">
                 <p class="card-titulo"><span th:text="*{nome}"></span></p>
                 <p><span th:text="*{descricao}"></span></p>
