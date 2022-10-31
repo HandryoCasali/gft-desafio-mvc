@@ -48,6 +48,8 @@ página de marcação de presença;
 
 ## ***Melhorias***
 
+- [x] Mostrar total de participantes do evento;
 - [ ] Validação no formulário pelo back-end;
+- [ ] Upload de arquivo de imagem em vez de url;
 - [ ] Melhorar o design e usabilidade do sistema;
 - [ ] Refatoração pra melhor perfomance do sistema;

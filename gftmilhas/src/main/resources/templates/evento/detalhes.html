@@ -25,6 +25,7 @@
                         th:text="${#dates.format(evento.dataFinal, 'dd/MM/yyyy')}"></span>
                 </p>
                 <p class="col-md-3 card-destaque">Duração do Evento: <span th:text="*{diasEvento}"></span> dias</p>
+                <p class="col-md-3 card-destaque">Total de Participantes: <span th:text="*{totalParticipantes}"></span></p>
             </div>
         </div>
         <div class="mb-5">

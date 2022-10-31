@@ -12,7 +12,6 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.gft.gftmilhas.entities.Evento;
-import br.com.gft.gftmilhas.entities.GrupoParticipante;
 import br.com.gft.gftmilhas.services.EventoService;
 
 @Controller
@@ -50,7 +49,6 @@ public class EventoController {
         return mv;
     }
 
-
     @GetMapping("buscar")
     public ModelAndView descricao(@RequestParam("id") Long idEvento) {
         ModelAndView mv = new ModelAndView("evento/detalhes.html");
@@ -62,12 +60,12 @@ public class EventoController {
         }
 
         mv.addObject("evento", evento);
-        mv.addObject("grupoParticipante", new GrupoParticipante());
+
         return mv;
     }
 
     @GetMapping("deletar")
-    public ModelAndView deletar(@RequestParam Long id, RedirectAttributes redirAtt){
+    public ModelAndView deletar(@RequestParam Long id, RedirectAttributes redirAtt) {
         ModelAndView mv = new ModelAndView("redirect:/evento");
         try {
             eventoService.deletar(id);

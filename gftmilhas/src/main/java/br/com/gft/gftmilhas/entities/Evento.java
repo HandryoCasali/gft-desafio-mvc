@@ -115,6 +115,10 @@ public class Evento {
         return dias;
     }
 
+    public long getTotalParticipantes(){
+        return grupos.stream().mapToLong(g -> g.getQuantidadeParticipantes()).sum();
+    }
+
     public List<GrupoParticipante> getGrupos() {
         return grupos;
     }
