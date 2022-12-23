@@ -1,0 +1,19 @@
+body {
+    height: 90vh;
+    min-height: 550px;
+    background-color: blueviolet;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 100%;
+}
+
+.caixa {
+    max-width: 900px;
+    padding: 0;
+    box-shadow: 10px 10px 10px rgb(0, 0, 0, 0.4);
+}

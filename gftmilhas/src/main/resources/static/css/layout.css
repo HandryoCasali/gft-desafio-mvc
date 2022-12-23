@@ -1,0 +1,30 @@
+.imagem-icon-participante {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+  }
+
+  .imagem-icon-grupo {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+  }
+
+  .imagem-card {
+    height: 100px;
+    object-fit: cover;
+  }
+
+  .card-titulo {
+    font-weight: 600;
+    font-size: 1.4rem;
+  }
+  .card-destaque {
+    font-weight: 600;
+  }
+  .card-cabecalho-grupo{
+    background-color: cadetblue;
+  }
+  .card-cabecalho-atividade{
+    background-color: aquamarine;
+  }

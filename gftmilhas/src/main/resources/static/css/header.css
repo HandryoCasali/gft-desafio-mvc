@@ -1,15 +1,20 @@
 .header {
-    background-color: rgb(44, 2, 92);
+    background-color: #AAC6DE;
 
   }
 
   .header a {
-    color: #fff;
+    color: #42749E;
     text-decoration: none;
+    font-weight: bold;
+    padding: .3em .5em;
+    transition: .1s ease-in;
   }
 
   .header a:hover {
-    color: #CCC;
+    background-color: #42749E;
+    border-radius: 5px;
+    color: #FFF;
   }
 
   .navegacao{
@@ -18,9 +23,23 @@
     align-items: baseline;  
   }
 
-  .logo{
-    font-weight: bold;
-    font-size: 1.6rem;
+  .header .logo{
+    background-color: #001C6D;
+    background-color: #003D82;
+    color: #fff;
+    padding: .1em .4em .1em 4em;
+    font-weight: 600;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .logo::after{
+    content: '';
+    width: .7em;
+    height: .7em;
+    background-color: #fff;
+    margin-left: .5em;
   }
 
   .links{
