@@ -68,6 +68,7 @@ public class PopularBanco implements ApplicationRunner{
         evento.setDescricao("Mussum Ipsum, cacilds vidis litro abertis. Per aumento de cachacis, eu reclamis.Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.Copo furadis é disculpa de bebadis, arcu quam euismod magna.Mé faiz elementum girarzis.");
         evento.setDataInicio(sdf1.parse("25/10/2022"));
         evento.setDataFinal(sdf1.parse("31/10/2022"));
+        evento.setUrlFoto("");
         evento = eventoService.cadastrar(evento);
        
         Atividade atividade1 = new Atividade();
@@ -91,10 +92,12 @@ public class PopularBanco implements ApplicationRunner{
         GrupoParticipante grupo1 = new GrupoParticipante();
         grupo1.setNome("Grupo Verde");
         grupo1.setEvento(evento);
+        grupo1.setUrlFoto("");
         grupo1 = grupoService.cadastrar(grupo1);
-
+        
         GrupoParticipante grupo2 = new GrupoParticipante();
         grupo2.setNome("Grupo Azul");
+        grupo2.setUrlFoto("");
         grupo2.setEvento(evento);
         grupo2 = grupoService.cadastrar(grupo2);
 
@@ -105,42 +108,48 @@ public class PopularBanco implements ApplicationRunner{
             "josi@gft.com",
             "josi",
             "L4",
-            grupo1);
+            grupo1,
+            "");
 
         Participante p2 = new Participante(
             "Handryo Casali",
             "hoci@gft.com",
             "hoci",
             "L0",
-            grupo1);
+            grupo1,
+            "");
 
         Participante p3 = new Participante(
             "Cecília Pereira",
             "ceci@gft.com",
             "ceci",
             "L2",
-            grupo1);
+            grupo1,
+            "");
     
         Participante p4 = new Participante(
             "Esther Pires",
             "erps@gft.com",
             "erps",
             "L3",
-            grupo2);
+            grupo2,
+            "");
         
         Participante p5 = new Participante(
             "Murilo Souza",
             "mosa@gft.com",
             "mosa",
             "L1",
-            grupo2);
+            grupo2,
+            "");
 
         Participante p6 = new Participante(
             "Maria Julia Campos",
             "macs@gft.com",
             "macs",
             "L3",
-            grupo2);
+            grupo2,
+            "");
 
         participanteService.cadastrar(p1);
         participanteService.cadastrar(p2);

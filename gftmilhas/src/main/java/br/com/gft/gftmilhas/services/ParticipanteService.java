@@ -3,6 +3,8 @@ package br.com.gft.gftmilhas.services;
 import java.util.List;
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -67,6 +69,16 @@ public class ParticipanteService {
         for(int i = 1; i <= dias; i++){
             presencaService.cadastrar(new PresencaParticipante(new PresencaParticipanteID(participante, evento, i)));
         }
+    }
+
+    @Transactional
+    public void editar(Participante participante) throws Exception{
+        Participante participanteBuscado = buscarPorId(participante.getId());
+
+        participanteBuscado.setNome(participante.getNome());
+        participanteBuscado.setUrlFoto(participante.getUrlFoto());
+        participanteBuscado.setNivel(participante.getNivel());
+        participanteRepository.save(participanteBuscado);
     }
 
     public void deletar(Long id){

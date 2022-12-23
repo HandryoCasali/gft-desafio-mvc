@@ -58,7 +58,7 @@
 
                         <tr th:each="presenca, itemStat : *{presencas}">
                             <td>
-                                <img th:src="@{*{presencas[__${itemStat.index}__].id.participante.urlFoto} ?
+                                <img th:src="@{*{presencas[__${itemStat.index}__].id.participante.urlFoto != ''}?
                                  @{*{presencas[__${itemStat.index}__].id.participante.urlFoto}} : @{/images/imagemPadraoUser.png}}"
                                     alt="Imagem do participante" class="imagem-participante">
                             </td>

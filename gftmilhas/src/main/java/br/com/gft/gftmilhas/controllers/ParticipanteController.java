@@ -59,7 +59,7 @@ public class ParticipanteController {
 
     @GetMapping("editar")
     public ModelAndView editar(@RequestParam Long id) {
-        ModelAndView mv = new ModelAndView("participante/form.html");
+        ModelAndView mv = new ModelAndView("participante/form-editar.html");
         try {
             Participante participante = participanteService.buscarPorId(id);
             Long idGrupo = participante.getGrupo().getId();
@@ -69,6 +69,22 @@ public class ParticipanteController {
             mv.addObject("participante", new Participante());
         }
 
+        return mv;
+    }
+
+    @PostMapping("editar")
+    public ModelAndView editar(Long idGrupo, Participante participante, RedirectAttributes redirAtt) {
+        ModelAndView mv = new ModelAndView("redirect:/grupo/buscar?id=" + idGrupo);
+        participante.setNivel(participante.getNivel().toUpperCase());
+        try {
+            participanteService.editar(participante);
+        
+            redirAtt.addFlashAttribute("mensagem", "Participante editado com sucesso!");
+        } catch (Exception e) {
+            redirAtt.addFlashAttribute("erro", e.getMessage());
+            return new ModelAndView("redirect:/participante/cadastrar?id=" + idGrupo);
+        }
+        
         return mv;
     }
 

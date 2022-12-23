@@ -58,13 +58,16 @@ página de marcação de presença;
 
 Prazo 3 semanas pra fazer: 
 
+Feito: 
 mudar para postgreeSql - OK
 Criação de evento, erro na conversão de data - bug fixed - OK
+Corrigir sistema de foto - OK
+Corrigir sistema de pontuação sem participantes - OK
+Tabela pontuação embaixo do ranking - OK
+Mostrar os bonus de atividade e presença - OK 
+edição de participante considerou como se estivesse cadastrando novo - Bug fixed
 
-Mostrar os bonus de atividade e presença 
-Corrigir sistema de foto
-edição de participante considerou como se estivesse cadastrando novo
-Tabela pontuação embaixo do ranking
+Falta:
 Paleta de cores para o azul da gft;
 Design mais voltado para "avião, foguete";
 Pagina pra editar usuario (menos as 4 letras);

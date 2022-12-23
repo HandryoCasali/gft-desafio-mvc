@@ -64,7 +64,7 @@
                             <input type="hidden" th:field="*{atividades[__${itemStat.index}__].id.participante.id}">
                             <input type="hidden" th:field="*{atividades[__${itemStat.index}__].id.atividade.id}">
                             <td>
-                                <img th:src="*{atividades[__${itemStat.index}__].id.participante.urlFoto}?
+                                <img th:src="*{atividades[__${itemStat.index}__].id.participante.urlFoto != ''}?
                                 @{*{atividades[__${itemStat.index}__].id.participante.urlFoto}} : @{/images/imagemPadraoUser.png} "
                                     alt="Imagem do participante" class="imagem-participante">
                             </td>

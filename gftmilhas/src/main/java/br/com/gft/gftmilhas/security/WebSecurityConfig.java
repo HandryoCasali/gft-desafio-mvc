@@ -18,7 +18,7 @@ public class WebSecurityConfig {
                     .antMatchers(HttpMethod.GET, "/css/**").permitAll()
                     .antMatchers("/cadastrar").permitAll()
                     .antMatchers("/ranking", "/").hasAnyRole("USER", "ADMIN")
-                    .antMatchers("/grupo", "/atividade", "evento", "/atividadeParticipante","/evento", "/presenca","/participante")
+                    .antMatchers("/grupo/**", "/atividade/**", "/evento/**", "/atividadeParticipante/**", "/presenca/**","/participante/**", "/cadastrarAdm")
                         .hasRole("ADMIN")
                     .anyRequest().authenticated())
             

@@ -3,6 +3,8 @@ package br.com.gft.gftmilhas.services;
 import java.util.List;
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +22,7 @@ public class GrupoParticipanteService {
     @Autowired
     private GrupoParticipanteRepository grupoParticipanteRepository;
 
-    public List<GrupoParticipante> listarPorPontos(Evento evento){
+    public List<GrupoParticipante> listarPorPontos(Evento evento) {
         return grupoParticipanteRepository.findByEventoOrderByPontuacaoDesc(evento);
     }
 
@@ -35,7 +37,7 @@ public class GrupoParticipanteService {
     }
 
     public GrupoParticipante cadastrar(GrupoParticipante grupo) throws Exception {
-        if(grupo.getId() == null){
+        if (grupo.getId() == null) {
             List<GrupoParticipante> grupos = grupoParticipanteRepository.findByNome(grupo.getNome());
             if (grupos != null) {
                 for (GrupoParticipante g : grupos) {
@@ -44,7 +46,7 @@ public class GrupoParticipanteService {
                         throw new Exception("Já existe grupo com esse nome cadastrado nesse evento!");
                     }
                 }
-                }
+            }
         }
         return grupoParticipanteRepository.save(grupo);
     }
@@ -57,11 +59,13 @@ public class GrupoParticipanteService {
         return grupoParticipanteRepository.existsById(id);
     }
 
+    @Transactional
     public Long calcularPontuacao(GrupoParticipante grupo) {
         Long pontuacao = 0l;
         boolean temDireitoBonusAtividade = true;
         boolean temDireitoBonusPresenca = true;
         List<Participante> participantes = grupo.getParticipantes();
+        
         for (Participante p : participantes) {
             for (AtividadeParticipante ap : p.getAtividades()) {
                 if (ap.getStatusConclusao() == StatusConclusao.CONCLUIU) {
@@ -83,16 +87,20 @@ public class GrupoParticipanteService {
                 }
             }
         }
+        if(participantes.isEmpty()){
+            temDireitoBonusAtividade = false;
+            temDireitoBonusPresenca = false;
+        }
 
-       
-            if (temDireitoBonusAtividade) {
-                pontuacao += 3;
-            }
-            if (temDireitoBonusPresenca) {
-                pontuacao += 5;
-            }
-        
-
+        if (temDireitoBonusAtividade) {
+            pontuacao += 3;
+        }
+        if (temDireitoBonusPresenca) {
+            pontuacao += 5;
+        }
+        grupo.setBonusAtividade(temDireitoBonusAtividade);
+        grupo.setBonusPresenca(temDireitoBonusPresenca);
+        grupoParticipanteRepository.save(grupo);
         return pontuacao;
     }
 

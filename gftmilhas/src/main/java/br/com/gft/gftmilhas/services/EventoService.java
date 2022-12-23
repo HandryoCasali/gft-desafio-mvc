@@ -49,7 +49,7 @@ public class EventoService {
         }
         return evento;
     }
-
+    
     public void deletar(Long id) {
         eventoRepository.deleteById(id);
     }

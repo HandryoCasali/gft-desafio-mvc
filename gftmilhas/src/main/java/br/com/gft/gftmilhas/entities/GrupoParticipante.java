@@ -24,10 +24,13 @@ public class GrupoParticipante {
     @NotBlank(message = "Nome é necessário.")
     private String nome;
     
-    private String urlFoto ;
+    private String urlFoto;
 
     private Long pontuacao;
-     
+    
+    private boolean bonusAtividade = false;
+    private boolean bonusPresenca = false;
+    
     
     @OneToMany(mappedBy = "grupo", cascade = CascadeType.REMOVE)
     private List<Participante> participantes;
@@ -86,5 +89,22 @@ public class GrupoParticipante {
     public void setEvento(Evento evento) {
         this.evento = evento;
     }
+
+    public boolean getBonusAtividade() {
+        return bonusAtividade;
+    }
+
+    public void setBonusAtividade(boolean bonusAtividade) {
+        this.bonusAtividade = bonusAtividade;
+    }
+
+    public boolean getBonusPresenca() {
+        return bonusPresenca;
+    }
+
+    public void setBonusPresenca(boolean bonusPresenca) {
+        this.bonusPresenca = bonusPresenca;
+    }
+
 
 }

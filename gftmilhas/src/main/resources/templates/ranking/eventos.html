@@ -35,14 +35,14 @@
         <div th:if="${not #lists.isEmpty(eventos)}">
             <a th:each="evento : ${eventos}" class="card mt-5 evento" th:href="@{ranking/evento(id=${evento.id})}">
                 <div class="card-header p-0">
-                    <img th:src="${evento.urlFoto} ? ${evento.urlFoto} : @{https://images.unsplash.com/photo-1528243097678-739049bbf2e7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1473&q=80}" alt="" class="card-img-top imagem-card">
+                    <img th:src="${evento.urlFoto != ''} ? ${evento.urlFoto} : @{https://images.unsplash.com/photo-1528243097678-739049bbf2e7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1473&q=80}" alt="" class="card-img-top imagem-card">
                 </div>
                 <div class="card-body row">
                     <h2 class="card-title" th:text="${evento.nome}"></h2>
                     <p class="mt-2 mb-3"><span th:text="${evento.descricao}" class="card-text"></span></p>
-                    <p class="col-md-3">Data Início: <span
+                    <p class="col-md-3 card-destaque">Data Início: <span
                             th:text="${#dates.format(evento.dataInicio, 'dd/MM/yyyy')}" class="card-text"></span></p>
-                    <p class="col-md-3">Data Final: <span
+                    <p class="col-md-3 card-destaque">Data Final: <span
                             th:text="${#dates.format(evento.dataFinal, 'dd/MM/yyyy')}" class="card-text"></span>
                     </p>
                     <p class="col-md-3 card-destaque">Total de Participantes: <span th:text="${evento.totalParticipantes}"></span></p>

@@ -24,6 +24,8 @@
             <div class="card-body">
                 <p class="card-titulo"><span th:text="*{nome}"></span></p>
                 <p class="card-destaque">Pontuação: <span th:text="*{pontuacao}"></span></p>
+                <p class="card-destaque">Bônus de atividade: <span th:text="*{bonusAtividade}? 'Sim' : 'Não'"></span></p>
+                <p class="card-destaque">Bônus de presença: <span th:text="*{bonusPresenca}? 'Sim' : 'Não'"></span></p>
                 <p class="card-destaque">Quantidade de Participantes: <span th:text="*{quantidadeParticipantes}"></span></p>
             </div>
         </div>
@@ -52,7 +54,7 @@
                 <tbody>
                     <tr th:each="participante : *{participantes}">
                         <td>
-                            <img   th:src="${participante.urlFoto} ? @{${participante.urlFoto}} : @{/images/imagemPadraoUser.png}" alt="Imagem do participante" class="imagem-participante">
+                            <img   th:src="${participante.urlFoto != ''} ? @{${participante.urlFoto}} : @{/images/imagemPadraoUser.png}" alt="Imagem do participante" class="imagem-participante">
                         </td>
                         
                         <td th:text="${participante.nome}"></td>

@@ -50,12 +50,13 @@ public class Participante {
     public Participante() {
     }
 
-    public Participante(String nome, String email, String quatroLetras, String nivel, GrupoParticipante grupo) {
+    public Participante(String nome, String email, String quatroLetras, String nivel, GrupoParticipante grupo, String urlFoto) {
         this.nome = nome;
         this.email = email;
         this.quatroLetras = quatroLetras;
         this.nivel = nivel;
         this.grupo = grupo;
+        this.urlFoto = urlFoto;
     }
 
     public Long getId() {
