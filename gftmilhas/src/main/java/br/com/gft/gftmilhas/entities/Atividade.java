@@ -14,8 +14,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -27,17 +25,17 @@ public class Atividade {
     private Long id;
 
     @Column(nullable = false)
-    @NotEmpty(message = "Nome é necessário.")
     private String nome;
-
-    @Column(nullable = false)
-    @NotBlank(message = "Descrição é necessário.")
+    
+    @Column(nullable = false, columnDefinition = "TEXT")
     private String descricao;
-
+    
+    @Column(nullable = false)
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dataInicio;
-
+    
+    @Column(nullable = false)
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dataFinal;

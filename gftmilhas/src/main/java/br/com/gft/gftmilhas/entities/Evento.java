@@ -16,7 +16,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.NotBlank;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -28,11 +27,9 @@ public class Evento {
     private Long id;
 
     @Column(nullable = false)
-    @NotBlank(message = "Nome é necessário.")
     private String nome;
 
-    @Column(nullable = false)
-    @NotBlank(message = "Descrição é necessário.")
+    @Column(nullable = false, columnDefinition = "TEXT")
     private String descricao;
 
     private String urlFoto;
@@ -40,7 +37,7 @@ public class Evento {
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dataInicio;
-
+    
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dataFinal;

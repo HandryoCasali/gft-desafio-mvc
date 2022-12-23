@@ -53,3 +53,20 @@ página de marcação de presença;
 - [ ] Upload de arquivo de imagem em vez de url;
 - [ ] Melhorar o design e usabilidade do sistema;
 - [ ] Refatoração pra melhor perfomance do sistema;
+
+
+
+Prazo 3 semanas pra fazer: 
+
+mudar para postgreeSql - OK
+Criação de evento, erro na conversão de data - bug fixed - OK
+
+Mostrar os bonus de atividade e presença 
+Corrigir sistema de foto
+edição de participante considerou como se estivesse cadastrando novo
+Tabela pontuação embaixo do ranking
+Paleta de cores para o azul da gft;
+Design mais voltado para "avião, foguete";
+Pagina pra editar usuario (menos as 4 letras);
+  - deveria enviar email pra resetar a senha 
+	(mt complicado, pedir outra sugestão).
