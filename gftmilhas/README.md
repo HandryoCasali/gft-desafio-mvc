@@ -62,14 +62,14 @@ Feito:
 mudar para postgreeSql - OK
 Criação de evento, erro na conversão de data - bug fixed - OK
 Corrigir sistema de foto - OK
-Corrigir sistema de pontuação sem participantes - OK
+Bug sistema de pontuação sem participantes - Bug fixed
 Tabela pontuação embaixo do ranking - OK
 Mostrar os bonus de atividade e presença - OK 
-edição de participante considerou como se estivesse cadastrando novo - Bug fixed
+Edição de participante considerou como se estivesse cadastrando novo - Bug fixed
+Permissões de endpoint no security - OK
 
 Falta:
 Paleta de cores para o azul da gft;
-Design mais voltado para "avião, foguete";
+Design mais voltado para "avião";
 Pagina pra editar usuario (menos as 4 letras);
-  - deveria enviar email pra resetar a senha 
-	(mt complicado, pedir outra sugestão).
+  - deveria enviar email pra resetar a senha (impedimento).

@@ -20,11 +20,12 @@
                     <div th:if="${param.error}" class="alert alert-danger">
                         Usuário e/ou Senha inválido(s).
                     </div>
-                    <div th:if="${param.logout}" class="alert alert-danger">
-                        You have been logged out.
+                    <div th:if="${param.logout}" class="alert alert-success">
+                        Você foi desconectado.
                     </div>
                     <div th:if="${cadastroSucesso}" th:text="${cadastroSucesso}" class="alert alert-success">
-                        
+                    </div>
+                    <div th:if="${mensagem}" th:text="${mensagem}" class="alert alert-success">
                     </div>
                     <h1 class="text-center">Login</h1>
 
@@ -42,6 +43,9 @@
                             </div>
                             <div>
                                 <p>Não tem uma conta? <a th:href="@{/cadastrar}">Criar Conta</a></p>
+                            </div>
+                            <div>
+                                <p><a th:href="@{/recuperar}">Esqueceu a senha?</a></p>
                             </div>
                             <div class="d-grid col-6 mx-auto">
                                 <button type="submit" class="btn btn-primary">Entrar</button>

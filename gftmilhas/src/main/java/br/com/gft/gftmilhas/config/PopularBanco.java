@@ -56,9 +56,9 @@ public class PopularBanco implements ApplicationRunner{
 
 
         Usuario usuarioUser = new Usuario();
-        usuarioUser.setNome("João Silva");
-        usuarioUser.setEmail("josi@gft.com");
-        usuarioUser.setQuatroLetras("josi");
+        usuarioUser.setNome("Handryo Casali");
+        usuarioUser.setEmail("handryocasalis2@gmail.com");
+        usuarioUser.setQuatroLetras("hoci");
         usuarioUser.setSenha("$2a$10$lggJvQhRZDyNwqkfmvjQUuoAVDnj6Z0fvZjMIcR4U5wOJr9yCaBi2");
         usuarioUser.getRoles().add(roleUser);
         usuarioRepository.save(usuarioUser);

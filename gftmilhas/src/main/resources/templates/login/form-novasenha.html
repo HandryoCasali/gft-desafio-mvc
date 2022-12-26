@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{layout.html}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GFT Milhas | Login</title>
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+
+</head>
+
+<body>
+    <div layout:fragment="content">
+
+        <main>
+            <div class="container-md caixa">
+                <div class="card p-3">
+                  
+                    <h1 class="text-center">Nova Senha</h1>
+
+                    <div class="card-body">
+                        <form th:action="@{/novasenha}" method="POST">
+                            <input type="hidden" name="token" th:value="${token}">
+                            <div class="form-floating mb-3">
+                                <input type="password" class="form-control" name="novaSenha" id="floatingPassword"
+                                    placeholder="Digite sua senha" required>
+                                <label for="floatingPassword">Nova Senha</label>
+                            </div>
+                            <div class="d-grid col-6 mx-auto">
+                                <button type="submit" class="btn btn-primary">Cadastrar nova senha</button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+</body>
+
+</html>

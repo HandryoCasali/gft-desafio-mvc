@@ -11,7 +11,7 @@
     transition: .1s ease-in;
   }
 
-  .header a:hover {
+  .header a:hover:not(.logo) {
     background-color: #42749E;
     border-radius: 5px;
     color: #FFF;

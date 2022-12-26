@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{layout.html}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GFT Milhas | Login</title>
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+
+</head>
+
+<body>
+    <div layout:fragment="content">
+
+        <main>
+            <div class="container-md caixa">
+                <div class="card p-3">
+                    <div th:if="${mensagemErro}" th:text="${mensagemErro}" class="alert alert-danger">
+                    </div>
+                    <h1 class="text-center">Recuperar Conta</h1>
+
+                    <div class="card-body">
+                        <form th:action="@{/recuperar}" method="POST">
+                            
+                            <p>Será enviado um email para recuperar a conta. Para isso digite suas quatro letras abaixo.</p>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="floatingInput" name="username"
+                                    placeholder="Digite seu usuário" maxlength="4" minlength="4" required>
+                                <label for="floatingInput">Quatro Letras</label>
+                            </div>
+                            <div class="d-grid col-6 mx-auto">
+                                <button type="submit" class="btn btn-primary">Enviar email</button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+</body>
+
+</html>
