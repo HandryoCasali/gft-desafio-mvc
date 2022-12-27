@@ -91,27 +91,32 @@ public class LoginController {
         return mv;
     }
 
-    @GetMapping("/recuperar/{token}")
+    @GetMapping("/novasenha/{token}")
     public ModelAndView getFormNovaSenha(@PathVariable String token) {
         ModelAndView mv = new ModelAndView("login/form-novasenha");
-        mv.addObject("token", token);
+        mv.addObject("token", token); 
         return mv;
     }
 
     @PostMapping("/novasenha")
-    public ModelAndView novaSenha(String token, String novaSenha, RedirectAttributes redirAtt) {
+    public ModelAndView novaSenha(String token, String password, String passwordcompare, RedirectAttributes redirAtt) {
         ModelAndView mv = new ModelAndView("redirect:/login");
         try {
             boolean tokenValido = tokenService.verificaToken(token);
             if (!tokenValido) {
                 redirAtt.addFlashAttribute("mensagemErro", "Token de acesso expirado");
                 return mv;
+            } 
+            boolean senhaValida = usuarioService.comparaSenha(password, passwordcompare);
+            if(!senhaValida){
+                redirAtt.addFlashAttribute("mensagemErro", "Senhas não correspondem.");
+                return new ModelAndView("redirect:/novasenha/"  + token);
             }
             Long id = tokenService.retornarIdUsuario(token);
-            usuarioService.alterarSenha(id, novaSenha);
-
+            usuarioService.alterarSenha(id, password);
+            redirAtt.addFlashAttribute("cadastroSucesso", "Senha atualizada com sucesso!");
         } catch (Exception e) {
-            redirAtt.addFlashAttribute("mensagemErro",e.getMessage());
+            redirAtt.addFlashAttribute("mensagemErro", e.getMessage());
         }
 
         return mv;

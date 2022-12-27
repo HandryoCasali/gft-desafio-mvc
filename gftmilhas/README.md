@@ -67,6 +67,8 @@ Tabela pontuação embaixo do ranking - OK
 Mostrar os bonus de atividade e presença - OK 
 Edição de participante considerou como se estivesse cadastrando novo - Bug fixed
 Permissões de endpoint no security - OK
+Sistema compare senha no recuperar senha - OK
+Mudar paleta de cor da tabela de pontuação - OK
 
 Falta:
 Paleta de cores para o azul da gft;

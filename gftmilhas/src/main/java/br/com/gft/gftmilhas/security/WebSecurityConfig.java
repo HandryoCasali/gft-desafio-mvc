@@ -16,11 +16,11 @@ public class WebSecurityConfig {
         http
             .authorizeHttpRequests((requests) -> requests
                     .antMatchers(HttpMethod.GET, "/css/**").permitAll()
-                    // .antMatchers(HttpMethod.GET,"/cadastrar", "/recuperar/**").permitAll()
-                    // .antMatchers(HttpMethod.POST, "/recuperar/**").permitAll()
-                    // .antMatchers("/ranking", "/").hasAnyRole("USER", "ADMIN")
-                    // .antMatchers("/grupo/**", "/atividade/**", "/evento/**", "/atividadeParticipante/**", "/presenca/**","/participante/**", "/cadastrarAdm")
-                    //     .hasRole("ADMIN")
+                    .antMatchers(HttpMethod.GET,"/cadastrar", "/recuperar/**", "/novasenha/*").permitAll()
+                    .antMatchers(HttpMethod.POST, "/recuperar/**", "/novasenha/*").permitAll()
+                    .antMatchers("/ranking", "/").hasAnyRole("USER", "ADMIN")
+                    .antMatchers("/grupo/**", "/atividade/**", "/evento/**", "/atividadeParticipante/**", "/presenca/**","/participante/**", "/cadastrarAdm")
+                        .hasRole("ADMIN")
                     .anyRequest().permitAll())
             
             .formLogin(form -> form

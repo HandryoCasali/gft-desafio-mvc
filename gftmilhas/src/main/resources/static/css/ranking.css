@@ -1,0 +1,15 @@
+.table tbody tr {
+    position: relative;
+}
+.table tbody tr:nth-child(1) td:nth-child(1)::before {
+    content: "";
+    background-image: url(../images/airplane-icon.svg);
+    background-repeat: no-repeat;
+    
+    background-size: cover;
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    rotate: -45deg;
+    left: -30px;
+}

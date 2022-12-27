@@ -34,6 +34,12 @@ public class UsuarioService {
     @Value("${spring.mail.username}")
     private String emailFrom;
 
+    @Value("${recuperar_senha.url}")
+    private String urlRecuperarSenha;
+
+    @Value("${recuperar_senha.mensagem}")
+    private String mensagemRecuperarSenha;
+
     public void cadastrar(Usuario usuario) throws Exception {
         boolean existeUsuarioCadastrado = ur.existsByQuatroLetras(usuario.getQuatroLetras());
 
@@ -79,19 +85,25 @@ public class UsuarioService {
         String token = tokenService.gerarToken(usuario);
 
         String mensagem = "<h1>Troca de Senha</h1><br>" +
-                "<p>Você solicitou a troca de senha de login no sistema da GFT Milhas. Clique no link abaixo para realizar a troca de senha</p><br>"
-                +
-                "<a href=\"http://localhost:8080/recuperar/\"" + token + ">Clique Aqui</a>";
+                "<p>"+ mensagemRecuperarSenha +"</p><br>" +
+                "<a href=\"" + urlRecuperarSenha + token + "\">Clique Aqui</a>";
 
+        System.out.println(mensagem);
         EmailModel email = new EmailModel(emailFrom, usuario.getEmail(), usuario.getNome(), mensagem);
         emailService.enviarEmail(email);
     }
 
     @Transactional
     public void alterarSenha(Long id, String novaSenha) throws UsuarioNotFoundException {
+
+
         Usuario usuario = buscarPorId(id);
         usuario.setSenha(new BCryptPasswordEncoder().encode(novaSenha));
         ur.save(usuario);
+    }
+
+    public boolean comparaSenha(String password, String passwordcompare) {
+        return password.equals(passwordcompare);
     }
 
 }

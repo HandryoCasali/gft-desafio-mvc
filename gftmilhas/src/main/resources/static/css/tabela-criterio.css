@@ -9,8 +9,18 @@
     width: 400px;
 }
 
+.tabela-titulo{
+    width: 400px;
+    text-align: center;
+    font-weight: bold;
+    color: #FFF;
+    background-color: #001C6D;
+    border: 1px solid #000;
+    border-bottom: 0px;
+}
+
 .tabela-criterio thead{
-    background-color: burlywood;
+    background-color: #003D82;
     text-align: center;
     color: #000;
     font-weight: 500;
@@ -26,13 +36,4 @@
     text-align: center;
 }
 
-.tabela-titulo{
-    width: 400px;
-    text-align: center;
-    font-weight: bold;
-    color: #FFF;
-    background-color: orange;
-    border: 1px solid #000;
-    border-bottom: 0px;
-}
 
