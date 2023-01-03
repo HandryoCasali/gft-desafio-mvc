@@ -8,34 +8,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GFT Milhas | Eventos</title>
     <style>
-        .evento{
+        body {
+            background-image: url('../images/bg-nuvem.jpg');
+            background-size: contain;
+            background-position-y: 40px;
+        }
+
+        .evento {
             width: 80%;
             color: #000;
             text-decoration: none;
             box-shadow: 10px 10px 10px rgb(0, 0, 0, 0.4);
         }
 
-        .evento:hover{
+        .evento:hover {
             color: #000;
             box-shadow: 6px 6px 8px rgb(0, 0, 0, 0.4);
             transform: scale(1.01);
-            transition: transition 0.2s ;
+            transition: transition 0.2s;
         }
-   
-        
+        .titulo {
+            font-size: 4em;
+            font-weight: bold;
+            color: rgb(1, 1, 57);
+        }
     </style>
 </head>
 
 <body>
     <div layout:fragment="content">
-        <h1>Lista de Eventos</h1>
+        <h1 class="titulo">Eventos</h1>
 
         <div class="alert alert-danger" th:if="${#lists.isEmpty(eventos)}">Nenhum evento disponível !</div>
-      
+
         <div th:if="${not #lists.isEmpty(eventos)}">
             <a th:each="evento : ${eventos}" class="card mt-5 evento" th:href="@{ranking/evento(id=${evento.id})}">
                 <div class="card-header p-0">
-                    <img th:src="${evento.urlFoto != ''} ? ${evento.urlFoto} : @{https://images.unsplash.com/photo-1528243097678-739049bbf2e7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1473&q=80}" alt="" class="card-img-top imagem-card">
+                    <img th:src="${evento.urlFoto != ''} ? ${evento.urlFoto} : @{https://images.unsplash.com/photo-1528243097678-739049bbf2e7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1473&q=80}"
+                        alt="" class="card-img-top imagem-card">
                 </div>
                 <div class="card-body row">
                     <h2 class="card-title" th:text="${evento.nome}"></h2>
@@ -45,7 +55,8 @@
                     <p class="col-md-3 card-destaque">Data Final: <span
                             th:text="${#dates.format(evento.dataFinal, 'dd/MM/yyyy')}" class="card-text"></span>
                     </p>
-                    <p class="col-md-3 card-destaque">Total de Participantes: <span th:text="${evento.totalParticipantes}"></span></p>
+                    <p class="col-md-3 card-destaque">Total de Participantes: <span
+                            th:text="${evento.totalParticipantes}"></span></p>
                 </div>
             </a>
         </div>

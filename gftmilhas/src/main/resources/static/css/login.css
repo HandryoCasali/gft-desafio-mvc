@@ -1,7 +1,9 @@
 body {
     height: 90vh;
     min-height: 550px;
-    background-color: blueviolet;
+    background-image: url('../images/bg-nuvem.jpg');
+    background-size: contain;
+    background-position-y: 40px;
 }
 
 main {
