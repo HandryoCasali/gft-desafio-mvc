@@ -14,8 +14,8 @@
     - **login**: user
     - **senha**: 123
 - **Usuario**:
-    - **login**: josi 
-    - **senha**: josi123
+    - **login**: hoci
+    - **senha**: 123
     
     É possível cadastrar novos usuários e ADM's.
     (Para cadastrar um adm é necessário estar logado como adm).
