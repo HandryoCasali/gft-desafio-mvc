@@ -3,8 +3,8 @@
 ## Sistema para gerenciamento de eventos com sistema de pontuação
 **🔧 Tecnologias utilizadas 🔧**
 - Java 17;
-- Spring Boot 2.7.4;
-- MySql;
+- Spring Boot 2.7.7;
+- PostgreSql;
 - Bootstrap;
 - Vs code;
 ---
@@ -72,3 +72,6 @@ Mudar paleta de cor da tabela de pontuação - OK
 Pagina pra editar usuario (menos as 4 letras)- OK
 Paleta de cores para o azul da gft - OK
 Design mais voltado para "avião", "voar"- (coloquei nuvens kk, procurar algum designer pra auxiliar) - OK
+
+Paginação e sistema de filtragem nas listas em ordem de ultimo evento;
+Calcular os pontos na hora de salvar.
